@@ -4,7 +4,7 @@ import Navigation from "./src/components/Navigation";
 import Screen02 from "./src/screens/Screen02";
 
 export default function App() {
-  return <Screen02></Screen02>;
+  return <Screen01></Screen01>;
 }
 
 const styles = StyleSheet.create({
