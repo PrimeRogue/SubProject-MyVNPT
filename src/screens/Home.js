@@ -8,12 +8,13 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import sliderData from "../components/sliderData";
-export default function Screen02() {
+export default function Home() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={{ padding: 15 }}>
         <View style={styles.header}>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
@@ -310,7 +311,7 @@ export default function Screen02() {
           Hỗ trợ nhanh
         </Text>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -345,7 +346,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.5)",
-    overflow: "hidden", // React Native doesn't have direct backdrop-filter equivalent
+    overflow: "hidden",
   },
 
   favoriteService: {

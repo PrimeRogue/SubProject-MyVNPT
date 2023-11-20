@@ -1,10 +1,27 @@
 import { StyleSheet, Text, View } from "react-native";
-import Screen01 from "./src/screens/Screen01";
-import Navigation from "./src/components/Navigation";
-import Screen02 from "./src/screens/Screen02";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import BottomTabNavigator from "./src/screens/BottomTabNavigator";
+import LogIn from "./src/screens/LogIn";
+const Stack = createStackNavigator();
 
 export default function App() {
-  return <Screen01></Screen01>;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Screen01">
+        <Stack.Screen
+          name="LogIn"
+          component={LogIn}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="BottomTabNavigator"
+          component={BottomTabNavigator}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({

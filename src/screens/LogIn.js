@@ -14,13 +14,26 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 import sliderData from "../components/sliderData";
 import { CheckBox } from "react-native-elements";
-
-export default function Screen01() {
+import dangNhapData from "../datas/dangNhapData";
+import { useNavigation } from "@react-navigation/native";
+export default function LogIn() {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const [isContinueClicked, setIsContinueClicked] = useState(false);
+  const [sdt, setSdt] = useState("");
+  const navigation = useNavigation();
+  let otp = "";
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
+  };
+
+  const handleLogIn = (otp) => {
+    const foundItem = dangNhapData.find((item) => item.OTP === otp);
+    const sdt = foundItem.sdt;
+    if (foundItem) {
+      navigation.navigate("BottomTabNavigator", { sdt });
+    }
   };
   return (
     <View style={styles.container}>
@@ -33,15 +46,15 @@ export default function Screen01() {
         animationType="slide" // You can change the animation type as needed
         transparent={true}
         visible={isModalVisible}
-        onRequestClose={() => {
-          setModalVisible(false);
-        }}
+        // onRequestClose={() => {
+        //   setModalVisible(false);
+        // }}
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <View
               style={{
-                borderWidth: 1,
+                borderBottomWidth: 1,
                 borderColor: "#EEF0F0",
                 padding: 10,
                 flexDirection: "row",
@@ -63,56 +76,60 @@ export default function Screen01() {
                 </Text>
               </TouchableOpacity>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                gap: 10,
-                padding: 5,
-                marginLeft: 10,
-              }}
-            >
-              <TouchableOpacity
+            {!isContinueClicked ? (
+              <View
                 style={{
-                  borderRadius: 15,
+                  flexDirection: "row",
+                  gap: 10,
                   padding: 5,
-                  borderWidth: 1,
-                  borderColor: "#7AA0DD",
-                  backgroundColor: "#EAF2FF",
-                  width: 100,
-                  justifyContent: "center",
-                  alignItems: "center",
+                  marginLeft: 10,
                 }}
               >
-                <Text style={{ color: "#7AA0DD", fontWeight: 400 }}>
-                  Bằng OTP
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
+                <TouchableOpacity
+                  style={{
+                    borderRadius: 15,
+                    padding: 5,
+                    borderWidth: 1,
+                    borderColor: "#7AA0DD",
+                    backgroundColor: "#EAF2FF",
+                    width: 100,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text style={{ color: "#7AA0DD", fontWeight: 400 }}>
+                    Bằng OTP
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    borderRadius: 15,
+                    padding: 5,
+                    borderWidth: 1,
+                    borderColor: "#A5A9AD",
+                    width: 100,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Text style={{ color: "#A5A9AD", fontWeight: 400 }}>
+                    Bằng 3G/4G
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            ) : null}
+            {!isContinueClicked ? (
+              <TextInput
+                placeholder="Nhập số điện thoại của bạn"
+                onChangeText={(text) => setSdt(text)}
                 style={{
-                  borderRadius: 15,
-                  padding: 5,
-                  borderWidth: 1,
-                  borderColor: "#7AA0DD",
-                  backgroundColor: "#EAF2FF",
-                  width: 100,
-                  justifyContent: "center",
-                  alignItems: "center",
+                  color: "#C3C6C7",
+                  fontWeight: "bold",
+                  fontSize: 25,
+                  padding: 15,
                 }}
-              >
-                <Text style={{ color: "#7AA0DD", fontWeight: 400 }}>
-                  Bằng 3G/4G
-                </Text>
-              </TouchableOpacity>
-            </View>
-            <TextInput
-              placeholder="Nhập số điện thoại của bạn"
-              style={{
-                color: "#C3C6C7",
-                fontWeight: "bold",
-                fontSize: 25,
-                padding: 15,
-              }}
-            ></TextInput>
+              ></TextInput>
+            ) : null}
             <View
               style={{
                 padding: 10,
@@ -121,27 +138,158 @@ export default function Screen01() {
                 bottom: 10,
               }}
             >
-              <CheckBox
-                title="Tôi đồng ý với Điều khoản sử dụng & Chính sách riêng tư của MyVNPT"
-                checked={isChecked}
-                onPress={() => setIsChecked(!isChecked)}
-              />
-              <TouchableOpacity
-                style={{
-                  padding: 10,
-                  width: "100%",
-                  backgroundColor: "#C2C6C9",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: 25,
-                }}
-              >
-                <Text
-                  style={{ fontWeight: "bold", fontSize: 15, color: "#fff" }}
+              {!isContinueClicked ? (
+                <CheckBox
+                  title="Tôi đồng ý với Điều khoản sử dụng & Chính sách riêng tư của MyVNPT"
+                  checked={isChecked}
+                  onPress={() => setIsChecked(!isChecked)}
+                />
+              ) : null}
+              {!isContinueClicked ? (
+                <TouchableOpacity
+                  onPress={() => setIsContinueClicked(!isContinueClicked)}
+                  style={
+                    !isChecked
+                      ? {
+                          padding: 10,
+                          width: "100%",
+                          backgroundColor: "#C2C6C9",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: 25,
+                        }
+                      : {
+                          padding: 10,
+                          width: "100%",
+                          backgroundColor: "#5682D9",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          borderRadius: 25,
+                        }
+                  }
                 >
-                  Tiếp tục
-                </Text>
-              </TouchableOpacity>
+                  <Text
+                    style={{ fontWeight: "bold", fontSize: 15, color: "#fff" }}
+                  >
+                    Tiếp tục
+                  </Text>
+                </TouchableOpacity>
+              ) : null}
+              {isContinueClicked ? (
+                <TouchableOpacity
+                  onPress={() => {
+                    handleLogIn(otp);
+                  }}
+                  style={{
+                    padding: 10,
+                    width: "100%",
+                    backgroundColor: "#5682D9",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderRadius: 25,
+                  }}
+                >
+                  <Text
+                    style={{ fontWeight: "bold", fontSize: 15, color: "#fff" }}
+                  >
+                    Đăng nhập
+                  </Text>
+                </TouchableOpacity>
+              ) : null}
+            </View>
+            <View
+              style={{
+                justifyContent: "center",
+                gap: 10,
+                alignItems: "center",
+              }}
+            >
+              {isContinueClicked ? (
+                <View>
+                  <Text
+                    style={{
+                      color: "#C3C6C7",
+                      fontWeight: "bold",
+                      fontSize: 25,
+                      padding: 15,
+                    }}
+                  >
+                    Nhập mã OTP
+                  </Text>
+                  <View
+                    style={{
+                      justifyContent: "center",
+                      flexDirection: "row",
+                      gap: 20,
+                    }}
+                  >
+                    <TextInput
+                      onChangeText={(text) => (otp += text)}
+                      style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                        fontSize: 30,
+                        borderWidth: 1,
+                        borderColor: "#C3C6C7",
+                        borderRadius: 5,
+                        fontWeight: "bold",
+                        color: "#A5A9AD",
+                      }}
+                    ></TextInput>
+                    <TextInput
+                      onChangeText={(text) => (otp += text)}
+                      style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                        fontSize: 30,
+                        borderWidth: 1,
+                        borderColor: "#C3C6C7",
+                        borderRadius: 5,
+                        fontWeight: "bold",
+                        color: "#A5A9AD",
+                      }}
+                    ></TextInput>
+                    <TextInput
+                      onChangeText={(text) => (otp += text)}
+                      style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                        fontSize: 30,
+                        borderWidth: 1,
+                        borderColor: "#C3C6C7",
+                        borderRadius: 5,
+                        fontWeight: "bold",
+                        color: "#A5A9AD",
+                      }}
+                    ></TextInput>
+                    <TextInput
+                      onChangeText={(text) => (otp += text)}
+                      style={{
+                        width: 40,
+                        height: 40,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                        fontSize: 30,
+                        borderWidth: 1,
+                        borderColor: "#C3C6C7",
+                        borderRadius: 5,
+                        fontWeight: "bold",
+                        color: "#A5A9AD",
+                      }}
+                    ></TextInput>
+                  </View>
+                </View>
+              ) : null}
             </View>
           </View>
         </View>
@@ -184,6 +332,14 @@ export default function Screen01() {
         >
           Chào mừng quý khách <br></br>đến với MyVNPT
         </Text>
+        <TouchableOpacity
+          style={{ backgroundColor: "teal", padding: 15 }}
+          onPress={() => {
+            navigation.navigate("BottomTabNavigator");
+          }}
+        >
+          <Text style={{ fontSize: "30", fontWeight: "bold" }}>Navi</Text>
+        </TouchableOpacity>
         <Pressable style={styles.button} onPress={toggleModal}>
           <Text
             style={{
@@ -245,7 +401,7 @@ export default function Screen01() {
               }}
             ></Image>
             <Text style={{ fontSize: 15, position: "absolute", left: 35 }}>
-              Tìm điểm giao dịch VNP{" "}
+              Tìm điểm giao dịch VNP
             </Text>
             <Icon name="keyboard-arrow-right" size={25} color="black" />
           </View>
