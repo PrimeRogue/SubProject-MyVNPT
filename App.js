@@ -3,24 +3,28 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import BottomTabNavigator from "./src/screens/BottomTabNavigator";
 import LogIn from "./src/screens/LogIn";
+import Home from "./src/screens/Home";
+import Telecom from "./src/screens/Telecome";
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Screen01">
-        <Stack.Screen
-          name="LogIn"
-          component={LogIn}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="BottomTabNavigator"
-          component={BottomTabNavigator}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName="Screen01">
+    //     <Stack.Screen
+    //       name="LogIn"
+    //       component={LogIn}
+    //       options={{ headerShown: false }}
+    //     />
+    //     <Stack.Screen
+    //       name="BottomTabNavigator"
+    //       component={BottomTabNavigator}
+    //       options={{ headerShown: false }}
+    //     />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    // <Home></Home>
+    <Telecom></Telecom>
   );
 }
 

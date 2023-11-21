@@ -8,7 +8,8 @@ import Home from "./Home";
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabNavigator = () => {
+const BottomTabNavigator = ({ route }) => {
+  const { sdt } = route.params;
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -33,6 +34,7 @@ const BottomTabNavigator = () => {
         name="Home"
         component={Home}
         options={{ headerShown: false }}
+        initialParams={{ sdt: sdt }}
       />
       <Tab.Screen
         name="Screen2"

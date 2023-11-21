@@ -33,6 +33,7 @@ export default function LogIn() {
     const sdt = foundItem.sdt;
     if (foundItem) {
       navigation.navigate("BottomTabNavigator", { sdt });
+      setModalVisible(false);
     }
   };
   return (
@@ -46,9 +47,6 @@ export default function LogIn() {
         animationType="slide" // You can change the animation type as needed
         transparent={true}
         visible={isModalVisible}
-        // onRequestClose={() => {
-        //   setModalVisible(false);
-        // }}
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
@@ -332,14 +330,6 @@ export default function LogIn() {
         >
           Chào mừng quý khách <br></br>đến với MyVNPT
         </Text>
-        <TouchableOpacity
-          style={{ backgroundColor: "teal", padding: 15 }}
-          onPress={() => {
-            navigation.navigate("BottomTabNavigator");
-          }}
-        >
-          <Text style={{ fontSize: "30", fontWeight: "bold" }}>Navi</Text>
-        </TouchableOpacity>
         <Pressable style={styles.button} onPress={toggleModal}>
           <Text
             style={{

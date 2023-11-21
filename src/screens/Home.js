@@ -1,18 +1,19 @@
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { useState, useRef, useEffect } from "react";
 import {
   StyleSheet,
   Text,
   View,
-  Pressable,
   Image,
-  FlatList,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";
-import sliderData from "../components/sliderData";
-export default function Home() {
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
+import OcticonsIcon from "react-native-vector-icons/Octicons";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import searchTrends from "../datas/searchTrends";
+import preferredService from "../datas/preferredService";
+export default function Home({ route }) {
+  // const { sdt } = route.params;
+  const sdt = "";
   return (
     <ScrollView style={styles.container}>
       <View style={{ padding: 15 }}>
@@ -32,17 +33,15 @@ export default function Home() {
             ></Image>
             <View style={{ gap: 5 }}>
               <Text style={{ color: "#fff" }}>Xin chào</Text>
-              <Text style={{ fontWeight: "bold", color: "#fff" }}>
-                012345789
-              </Text>
+              <Text style={{ fontWeight: "bold", color: "#fff" }}>{sdt}</Text>
             </View>
           </View>
           <View style={{ flexDirection: "row", gap: 20 }}>
             <View style={styles.noficationButton}>
-              <Icon name="notifications" size={25} color="#fff" />
+              <MaterialIcon name="notifications" size={25} color="#fff" />
             </View>
             <View style={styles.noficationButton}>
-              <Icon name="search" size={25} color="#fff" />
+              <MaterialIcon name="search" size={25} color="#fff" />
             </View>
           </View>
         </View>
@@ -194,7 +193,7 @@ export default function Home() {
       </View>
       <View style={styles.favoriteService}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <Text style={{ fontSize: 15, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 18, fontWeight: "bold" }}>
             Dịch vụ ưa thích
           </Text>
           <Text style={{ fontSize: 12, color: "#347DF2" }}>Xem tất cả</Text>
@@ -207,62 +206,22 @@ export default function Home() {
             marginTop: 10,
           }}
         >
-          <View style={{ alignItems: "center", gap: 5 }}>
-            <Image
-              source={require("../../assets/fase1.png")}
-              style={{
-                width: 60,
-                height: 60,
-                borderRadius: "50%",
-                resizeMode: "contain",
-              }}
-            ></Image>
-            <Text style={{ fontSize: 12, textAlign: "center" }}>
-              Nạp điện<br></br>thoại
-            </Text>
-          </View>
-          <View style={{ alignItems: "center", gap: 5 }}>
-            <Image
-              source={require("../../assets/fase2.png")}
-              style={{
-                width: 60,
-                height: 60,
-                borderRadius: "50%",
-                resizeMode: "contain",
-              }}
-            ></Image>
-            <Text style={{ fontSize: 12, textAlign: "center" }}>
-              Đóng cước<br></br>viễn thông
-            </Text>
-          </View>
-          <View style={{ alignItems: "center", gap: 5 }}>
-            <Image
-              source={require("../../assets/fase3.png")}
-              style={{
-                width: 60,
-                height: 60,
-                borderRadius: "50%",
-                resizeMode: "contain",
-              }}
-            ></Image>
-            <Text style={{ fontSize: 12, textAlign: "center" }}>
-              Cài đặt<br></br>thông báo
-            </Text>
-          </View>
-          <View style={{ alignItems: "center", gap: 5 }}>
-            <Image
-              source={require("../../assets/fase4.png")}
-              style={{
-                width: 60,
-                height: 60,
-                borderRadius: "50%",
-                resizeMode: "contain",
-              }}
-            ></Image>
-            <Text style={{ fontSize: 12, textAlign: "center" }}>
-              Thông tin<br></br>thuê bao
-            </Text>
-          </View>
+          {preferredService.slice(0, 4).map((item, index) => (
+            <View style={{ alignItems: "center", gap: 5 }}>
+              <Image
+                source={item.image}
+                style={{
+                  width: 60,
+                  height: 60,
+                  borderRadius: "50%",
+                  resizeMode: "contain",
+                }}
+              ></Image>
+              <Text style={{ fontSize: 12, textAlign: "center" }}>
+                {item.name}
+              </Text>
+            </View>
+          ))}
         </View>
         <Image
           source={require("../../assets/uudai.png")}
@@ -274,7 +233,7 @@ export default function Home() {
         ></Image>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: 18,
             fontWeight: "bold",
             marginTop: 30,
             marginBottom: 20,
@@ -302,7 +261,7 @@ export default function Home() {
         </View>
         <Text
           style={{
-            fontSize: 15,
+            fontSize: 18,
             fontWeight: "bold",
             marginTop: 30,
             marginBottom: 20,
@@ -310,6 +269,105 @@ export default function Home() {
         >
           Hỗ trợ nhanh
         </Text>
+        <View style={{ gap: 10 }}>
+          <View style={{ flexDirection: "row", gap: 10 }}>
+            <View
+              style={{
+                padding: 20,
+                backgroundColor: "#F5F8FD",
+                borderRadius: 10,
+                justifyContent: "flex-start",
+                alignItems: "center",
+                flex: 5,
+                flexDirection: "row",
+                gap: 10,
+              }}
+            >
+              <OcticonsIcon name="device-mobile" size={25} color="#5693E9" />
+              <Text style={{ fontSize: 15 }}>Điện thoại di động</Text>
+            </View>
+            <View
+              style={{
+                padding: 20,
+                backgroundColor: "#F5F8FD",
+                borderRadius: 10,
+                justifyContent: "flex-start",
+                alignItems: "center",
+                flex: 5,
+                flexDirection: "row",
+                gap: 10,
+              }}
+            >
+              <MaterialIcon name="wifi" size={25} color="#5693E9" />
+              <Text style={{ fontSize: 15 }}>Internet</Text>
+            </View>
+          </View>
+          <View style={{ flexDirection: "row", gap: 10 }}>
+            <View
+              style={{
+                padding: 20,
+                backgroundColor: "#F5F8FD",
+                borderRadius: 10,
+                justifyContent: "flex-start",
+                alignItems: "center",
+                flex: 5,
+                flexDirection: "row",
+                gap: 10,
+              }}
+            >
+              <MaterialIcon name="cast" size={25} color="#5693E9" />
+              <Text style={{ fontSize: 15 }}>Truyền hình MyTv</Text>
+            </View>
+            <View
+              style={{
+                padding: 20,
+                backgroundColor: "#F5F8FD",
+                borderRadius: 10,
+                justifyContent: "flex-start",
+                alignItems: "center",
+                flex: 5,
+                flexDirection: "row",
+                gap: 10,
+              }}
+            >
+              <MaterialCommunityIcons
+                name="chat-question-outline"
+                size={25}
+                color="#5693E9"
+              />
+              <Text style={{ fontSize: 15 }}>Điện thoại cố định</Text>
+            </View>
+          </View>
+        </View>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: "bold",
+            marginTop: 30,
+            marginBottom: 20,
+          }}
+        >
+          Xu hướng tìm kiếm
+        </Text>
+        <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
+          {searchTrends.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              style={{
+                borderRadius: 30,
+                padding: 10,
+                paddingTop: 12,
+                paddingBottom: 12,
+                backgroundColor: "#F8F8F8",
+                width: "fit-content",
+              }}
+            >
+              <Text style={{ fontSize: 18, color: "#B0B2B3" }}>
+                {item.name}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
     </ScrollView>
   );
