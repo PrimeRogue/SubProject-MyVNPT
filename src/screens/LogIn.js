@@ -348,9 +348,14 @@ export default function LogIn() {
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.noficationButton}>
+          <TouchableOpacity
+            style={styles.noficationButton}
+            onPress={() => {
+              navigation.navigate("Notification", { navigation });
+            }}
+          >
             <Icon name="notifications" size={25} color="black" />
-          </View>
+          </TouchableOpacity>
         </View>
         <Text
           style={{

@@ -6,6 +6,7 @@ import LogIn from "./src/screens/LogIn";
 import Home from "./src/screens/Home";
 import Telecom from "./src/screens/Telecome";
 import PackOfData from "./src/screens/PackOfData";
+import Notification from "./src/screens/Notification";
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -18,6 +19,11 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Notification"
+          component={Notification}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="BottomTabNavigator"
           component={BottomTabNavigator}
           options={{ headerShown: false }}
@@ -27,6 +33,7 @@ export default function App() {
     // <Home></Home>
     // <Telecom></Telecom>
     // <BottomTabNavigator></BottomTabNavigator>
+    // <Notification></Notification>
   );
 }
 

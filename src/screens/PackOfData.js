@@ -7,14 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
-import OcticonsIcon from "react-native-vector-icons/Octicons";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import searchTrends from "../datas/searchTrends";
-import preferredService from "../datas/preferredService";
-import { TextInput } from "react-native-gesture-handler";
-export default function PackOfData({ route }) {
-  // const { sdt } = route.params;
-  const sdt = "";
+export default function PackOfData() {
   return (
     <ScrollView style={styles.container}>
       <View
