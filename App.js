@@ -10,23 +10,23 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    // <NavigationContainer>
-    //   <Stack.Navigator initialRouteName="Screen01">
-    //     <Stack.Screen
-    //       name="LogIn"
-    //       component={LogIn}
-    //       options={{ headerShown: false }}
-    //     />
-    //     <Stack.Screen
-    //       name="BottomTabNavigator"
-    //       component={BottomTabNavigator}
-    //       options={{ headerShown: false }}
-    //     />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Screen01">
+        <Stack.Screen
+          name="LogIn"
+          component={LogIn}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="BottomTabNavigator"
+          component={BottomTabNavigator}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
     // <Home></Home>
     // <Telecom></Telecom>
-    <PackOfData></PackOfData>
+    // <BottomTabNavigator></BottomTabNavigator>
   );
 }
 

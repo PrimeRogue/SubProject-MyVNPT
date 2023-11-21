@@ -20,6 +20,7 @@ export default function LogIn() {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isContinueClicked, setIsContinueClicked] = useState(false);
+  const [activeLanguage, setActiveLanguage] = useState("vn");
   const [sdt, setSdt] = useState("");
   const navigation = useNavigation();
   let otp = "";
@@ -304,16 +305,48 @@ export default function LogIn() {
           }}
         >
           <View style={styles.languageButtonContainer}>
-            <Pressable style={styles.languageButton}>
-              <Text style={{ fontSize: 12, fontWeight: 400, color: "#fff" }}>
+            <TouchableOpacity
+              onPress={() => {
+                setActiveLanguage("vn");
+              }}
+              style={[
+                styles.languageButton,
+                {
+                  backgroundColor: activeLanguage == "vn" ? "#34404C" : "#fff",
+                },
+              ]}
+            >
+              <Text
+                style={{
+                  fontSize: 12,
+                  fontWeight: 400,
+                  color: activeLanguage == "vn" ? "#fff" : "#000000",
+                }}
+              >
                 VN
               </Text>
-            </Pressable>
-            <Pressable style={styles.languageButton}>
-              <Text style={{ fontSize: 12, fontWeight: 400, color: "#fff" }}>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                setActiveLanguage("en");
+              }}
+              style={[
+                styles.languageButton,
+                {
+                  backgroundColor: activeLanguage == "en" ? "#34404C" : "#fff",
+                },
+              ]}
+            >
+              <Text
+                style={{
+                  fontSize: 12,
+                  fontWeight: 400,
+                  color: activeLanguage == "en" ? "#fff" : "#000000",
+                }}
+              >
                 EN
               </Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
           <View style={styles.noficationButton}>
             <Icon name="notifications" size={25} color="black" />
@@ -328,7 +361,9 @@ export default function LogIn() {
             color: "#fff",
           }}
         >
-          Chào mừng quý khách <br></br>đến với MyVNPT
+          {activeLanguage == "en"
+            ? "Welcome Come\nto MyVNPT"
+            : "Chào mừng quý khách\nđến với MyVNPT"}
         </Text>
         <Pressable style={styles.button} onPress={toggleModal}>
           <Text
@@ -339,7 +374,9 @@ export default function LogIn() {
               color: "#3579F0",
             }}
           >
-            Đăng nhập / Đăng ký
+            {activeLanguage == "en"
+              ? "Log in / Sign up"
+              : "Đăng nhập / Đăng ký"}
           </Text>
         </Pressable>
         <View style={styles.utilContainer}>
@@ -351,7 +388,7 @@ export default function LogIn() {
               color: "#363F49",
             }}
           >
-            Tiện ích
+            {activeLanguage == "en" ? "Utilities" : "Tiện ích"}
           </Text>
           <View style={styles.util}>
             <Image
@@ -363,7 +400,9 @@ export default function LogIn() {
               }}
             ></Image>
             <Text style={{ fontSize: 15, position: "absolute", left: 35 }}>
-              Đăng ký dịch vụ VNPT
+              {activeLanguage == "en"
+                ? "Register for VNPT service"
+                : "Đăng ký dịch vụ VNPT"}
             </Text>
             <Icon name="keyboard-arrow-right" size={25} color="black" />
           </View>
@@ -377,7 +416,9 @@ export default function LogIn() {
               }}
             ></Image>
             <Text style={{ fontSize: 15, position: "absolute", left: 35 }}>
-              Ký hợp đồng điện tử
+              {activeLanguage == "en"
+                ? "Sign an electronic contract"
+                : "Ký hợp đồng điện tử"}
             </Text>
             <Icon name="keyboard-arrow-right" size={25} color="black" />
           </View>
@@ -391,7 +432,9 @@ export default function LogIn() {
               }}
             ></Image>
             <Text style={{ fontSize: 15, position: "absolute", left: 35 }}>
-              Tìm điểm giao dịch VNP
+              {activeLanguage == "en"
+                ? "Find VNP transaction points"
+                : "Tìm điểm giao dịch VNP"}
             </Text>
             <Icon name="keyboard-arrow-right" size={25} color="black" />
           </View>
@@ -455,7 +498,7 @@ export default function LogIn() {
               color: "#363F49",
             }}
           >
-            Liên hệ hỗ trợ
+            {activeLanguage == "en" ? "Contact help" : "Liên hệ hỗ trợ"}
           </Text>
           <View style={styles.util}>
             <Image
@@ -467,7 +510,7 @@ export default function LogIn() {
               }}
             ></Image>
             <Text style={{ fontSize: 15, position: "absolute", left: 35 }}>
-              Hỏi đáp
+              {activeLanguage == "en" ? "Q&A" : "Hỏi đáp"}
             </Text>
             <Icon name="keyboard-arrow-right" size={25} color="black" />
           </View>
@@ -481,7 +524,7 @@ export default function LogIn() {
               }}
             ></Image>
             <Text style={{ fontSize: 15, position: "absolute", left: 35 }}>
-              Hổ trợ di động
+              {activeLanguage == "en" ? "Mobile support" : "Hổ trợ di động"}
             </Text>
             <Icon name="keyboard-arrow-right" size={25} color="black" />
           </View>
@@ -494,7 +537,9 @@ export default function LogIn() {
               }}
             ></Image>
             <Text style={{ fontSize: 15, position: "absolute", left: 35 }}>
-              Hỗ trợ Internet/ MyTV/ Cố định
+              {activeLanguage == "en"
+                ? "Supports Internet/ MyTV/ Fixed"
+                : "Hỗ trợ Internet/ MyTV/ Cố định"}
             </Text>
             <Icon name="keyboard-arrow-right" size={25} color="black" />
           </View>
@@ -518,7 +563,9 @@ export default function LogIn() {
             }}
           ></Image>
           <Text style={{ fontSize: 15, color: "#fff" }}>
-            Một sản phẩm của VNPT
+            {activeLanguage == "en"
+              ? "A product of VNPT"
+              : "Một sản phẩm của VNPT"}
           </Text>
         </View>
       </View>
