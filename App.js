@@ -5,6 +5,7 @@ import BottomTabNavigator from "./src/screens/BottomTabNavigator";
 import LogIn from "./src/screens/LogIn";
 import Home from "./src/screens/Home";
 import Telecom from "./src/screens/Telecome";
+import PackOfData from "./src/screens/PackOfData";
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -24,7 +25,8 @@ export default function App() {
     //   </Stack.Navigator>
     // </NavigationContainer>
     // <Home></Home>
-    <Telecom></Telecom>
+    // <Telecom></Telecom>
+    <PackOfData></PackOfData>
   );
 }
 
