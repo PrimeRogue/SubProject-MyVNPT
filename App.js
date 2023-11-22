@@ -7,6 +7,7 @@ import Home from "./src/screens/Home";
 import Telecom from "./src/screens/Telecome";
 import PackOfData from "./src/screens/PackOfData";
 import Notification from "./src/screens/Notification";
+import BuyPhoneSim from "./src/screens/BuyPhoneSim";
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -28,10 +29,15 @@ export default function App() {
           component={BottomTabNavigator}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="BuyPhoneSim"
+          component={BuyPhoneSim}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
+    // // <BuyPhoneSim></BuyPhoneSim>
     // <Home></Home>
-    // <Telecom></Telecom>
     // <BottomTabNavigator></BottomTabNavigator>
     // <Notification></Notification>
   );

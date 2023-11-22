@@ -14,9 +14,10 @@ import {
 import Icon from "react-native-vector-icons/MaterialIcons";
 import sliderData from "../components/sliderData";
 import { CheckBox } from "react-native-elements";
-import dangNhapData from "../datas/dangNhapData";
+import axios from "axios";
+// import dangNhapData from "../datas/dangNhapData";
 import { useNavigation } from "@react-navigation/native";
-export default function LogIn() {
+export default function LogIn({ route }) {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isContinueClicked, setIsContinueClicked] = useState(false);
@@ -24,11 +25,23 @@ export default function LogIn() {
   const [sdt, setSdt] = useState("");
   const navigation = useNavigation();
   let otp = "";
-
+  let dangNhapData = [];
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
 
+  const fetchPurchasedPhoneNumber = async () => {
+    try {
+      const apiUrl =
+        "https://62c1218ceff7f7856f0990a7.mockapi.io/shopeelink/purchasedPhoneNumber";
+      const response = await axios.get(apiUrl);
+      dangNhapData = response.data;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
+    }
+  };
+  fetchPurchasedPhoneNumber();
   const handleLogIn = (otp) => {
     const foundItem = dangNhapData.find((item) => item.OTP === otp);
     const sdt = foundItem.sdt;

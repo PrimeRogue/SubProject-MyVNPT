@@ -29,7 +29,7 @@ export default function PackOfData() {
             marginTop: 15,
           }}
         >
-          Viễn thông
+          Gói cước
         </Text>
         <TouchableOpacity
           style={{

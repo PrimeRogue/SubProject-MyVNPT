@@ -6,14 +6,29 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import React, { useReducer, useState } from "react";
+import axios from "axios";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import OcticonsIcon from "react-native-vector-icons/Octicons";
+import Feather from "react-native-vector-icons/Feather";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import searchTrends from "../datas/searchTrends";
 import preferredService from "../datas/preferredService";
-export default function Home({ route }) {
-  // const { sdt } = route.params;
-  const sdt = "";
+export default function Home({ navigation, route }) {
+  const [sdt, setSdt] = useState("");
+
+  const fetchPurchasedPhoneNumber = async () => {
+    try {
+      const apiUrl =
+        "https://62c1218ceff7f7856f0990a7.mockapi.io/shopeelink/purchasedPhoneNumber";
+      const response = await axios.get(apiUrl);
+      setSdt(response.data.pop().sdt);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      throw error;
+    }
+  };
+  fetchPurchasedPhoneNumber();
   return (
     <ScrollView style={styles.container}>
       <View style={{ padding: 15 }}>
@@ -46,6 +61,100 @@ export default function Home({ route }) {
           </View>
         </View>
         <View style={styles.glass}>
+          <Text
+            style={{
+              fontSize: 15,
+              color: "black",
+              marginBottom: 10,
+              paddingBottom: 10,
+              borderBottomWidth: 2,
+              borderColor: "#fff",
+            }}
+          >
+            <Feather name="smartphone" size={15} color="black" />
+            {sdt} - Thuê bao trả trước
+          </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 10,
+              marginBottom: 10,
+            }}
+          >
+            <View style={{ width: "50%", gap: 5 }}>
+              <Text style={{ fontSize: 15 }}>Tài khoản chính</Text>
+              <Text style={{ fontSize: 25, fontWeight: "bold" }}>0đ</Text>
+            </View>
+            <View style={{ width: "50%", gap: 5 }}>
+              <Text style={{ fontSize: 15 }}>Tài khoản khuyến mãi</Text>
+              <Text style={{ fontSize: 25, fontWeight: "bold" }}>0đ</Text>
+            </View>
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 5,
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                padding: 5,
+                paddingLeft: 10,
+                paddingRight: 10,
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 30,
+                backgroundColor: "#fff",
+                gap: 3,
+              }}
+            >
+              <MaterialIcon name="attach-money" size={20} color="#5693E9" />
+              <Text style={{ fontSize: 12, fontWeight: "bold" }}>Nạp tiền</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                padding: 5,
+                paddingLeft: 10,
+                paddingRight: 10,
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 30,
+                backgroundColor: "#fff",
+                gap: 3,
+              }}
+            >
+              <Feather name="database" size={20} color="#5693E9" />
+              <Text style={{ fontSize: 12, fontWeight: "bold" }}>
+                Chi tiết thuê bao
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                padding: 5,
+                paddingLeft: 10,
+                paddingRight: 10,
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: 30,
+                backgroundColor: "#fff",
+                gap: 3,
+              }}
+            >
+              <Feather name="headphones" size={20} color="#5693E9" />
+              <Text style={{ fontSize: 12, fontWeight: "bold" }}>Hỗ trợ</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.glass}>
           <View
             style={{
               padding: 15,
@@ -68,6 +177,9 @@ export default function Home({ route }) {
                 Ấn tượng hơn khi chọn SIM số đẹp theo ngày sinh, số may mắn
               </Text>
               <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("BuyPhoneSim", { navigation });
+                }}
                 style={{
                   borderRadius: 15,
                   backgroundColor: "#3078FE",

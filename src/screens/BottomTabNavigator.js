@@ -5,6 +5,8 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 import Screen02 from "../components/Screen02";
 import Home from "./Home";
+import Telecome from "./Telecome";
+import PackOfData from "./PackOfData";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,11 +17,12 @@ const BottomTabNavigator = ({ route }) => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
           let iconName;
-
-          if (route.name === "Home") {
+          if (route.name === "Trang chủ") {
             iconName = "ios-home";
-          } else if (route.name === "Screen2") {
-            iconName = "ios-person";
+          } else if (route.name === "Viễn thông") {
+            iconName = "ios-planet";
+          } else if (route.name === "Gói cước") {
+            iconName = "ios-analytics";
           }
 
           return <Icon name={iconName} size={size} color={color} />;
@@ -31,14 +34,19 @@ const BottomTabNavigator = ({ route }) => {
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="Trang chủ"
         component={Home}
         options={{ headerShown: false }}
         initialParams={{ sdt: sdt }}
       />
       <Tab.Screen
-        name="Screen2"
-        component={Screen02}
+        name="Viễn thông"
+        component={Telecome}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Gói cước"
+        component={PackOfData}
         options={{ headerShown: false }}
       />
     </Tab.Navigator>
