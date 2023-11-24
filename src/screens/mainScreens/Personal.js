@@ -306,12 +306,25 @@ import {
               style={{ position: "absolute", right: 0 }}
             />
           </View>
-          
+          <View
+            style={{
+              flexDirection: "row",
+              gap: 5,
+              alignItems: "center",
+              paddingBottom: 15,
+              paddingTop: 15,
+            }}
+          >
+            <Feather name="log-out" size={25} color="#787D82" />
+            <Text style={{ fontSize: 15, fontWeight: "bold", color: "#787D82" }}>
+              Cài đặt ứng dụng
+            </Text>
+          </View>
 
 
 
 
-          
+
         </View>
 
 
