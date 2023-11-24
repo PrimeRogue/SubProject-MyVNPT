@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Home from "./Home";
 import Telecome from "./Telecome";
 import PackOfData from "./PackOfData";
+import Personal from "./Personal";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +23,10 @@ const BottomTabNavigator = ({ route }) => {
             iconName = "ios-planet";
           } else if (route.name === "Gói cước") {
             iconName = "ios-analytics";
+          } else if (route.name === "Cá nhân") {
+            
           }
+          
 
           return <Icon name={iconName} size={size} color={color} />;
         },
@@ -46,6 +50,11 @@ const BottomTabNavigator = ({ route }) => {
       <Tab.Screen
         name="Gói cước"
         component={PackOfData}
+        options={{ headerShown: false }}
+      />
+       <Tab.Screen
+        name="Cá nhân"
+        component={Personal}
         options={{ headerShown: false }}
       />
     </Tab.Navigator>
