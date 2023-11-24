@@ -12,8 +12,11 @@ import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import OcticonsIcon from "react-native-vector-icons/Octicons";
 import Feather from "react-native-vector-icons/Feather";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import searchTrends from "../datas/searchTrends";
-import preferredService from "../datas/preferredService";
+import searchTrends from "../../datas/searchTrends";
+import preferredService from "../../datas/preferredService";
+import SwiperFlatList from "react-native-swiper-flatlist";
+import homeSlider from "../../datas/homeSlider";
+import logInSlider from "../../datas/logInSlider";
 export default function Home({ navigation, route }) {
   const [sdt, setSdt] = useState("");
 
@@ -35,7 +38,7 @@ export default function Home({ navigation, route }) {
         <View style={styles.header}>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
             <Image
-              source={require("../../assets/toa-nha-vnpt.jpg")}
+              source={require("../../../assets/toa-nha-vnpt.jpg")}
               style={{
                 width: 50,
                 height: 50,
@@ -197,7 +200,7 @@ export default function Home({ navigation, route }) {
               </TouchableOpacity>
             </View>
             <Image
-              source={require("../../assets/sim.jpg")}
+              source={require("../../../assets/sim.jpg")}
               style={{
                 width: "50%",
                 height: 150,
@@ -219,7 +222,7 @@ export default function Home({ navigation, route }) {
                 Chuyển mạng <br></br>giữ số
               </Text>
               <Image
-                source={require("../../assets/vinaphone.png")}
+                source={require("../../../assets/vinaphone.png")}
                 style={{
                   width: "80%",
                   height: 150,
@@ -246,7 +249,7 @@ export default function Home({ navigation, route }) {
                   Đăng ký TV &<br></br>Internet
                 </Text>
                 <Image
-                  source={require("../../assets/smarttv.jpg")}
+                  source={require("../../../assets/smarttv.jpg")}
                   style={{
                     width: 60,
                     height: 60,
@@ -269,7 +272,7 @@ export default function Home({ navigation, route }) {
                   Tra cứu đơn<br></br>hàng
                 </Text>
                 <Image
-                  source={require("../../assets/smarttv.jpg")}
+                  source={require("../../../assets/smarttv.jpg")}
                   style={{
                     width: 60,
                     height: 60,
@@ -293,7 +296,7 @@ export default function Home({ navigation, route }) {
               Kích hoạt sim Vinaphone
             </Text>
             <Image
-              source={require("../../assets/sims.jpg")}
+              source={require("../../../assets/sims.jpg")}
               style={{
                 width: 100,
                 height: 60,
@@ -336,7 +339,7 @@ export default function Home({ navigation, route }) {
           ))}
         </View>
         <Image
-          source={require("../../assets/uudai.png")}
+          source={require("../../../assets/uudai.png")}
           style={{
             width: "100%",
             height: 170,
@@ -353,24 +356,29 @@ export default function Home({ navigation, route }) {
         >
           Làm nhiều hơn với MyVNPT
         </Text>
-        <View style={{ width: "100%", flexDirection: "row", gap: 20 }}>
-          <Image
-            source={require("../../assets/im1.jpg")}
-            style={{
-              width: "35%",
-              height: 180,
-              resizeMode: "contain",
-            }}
-          ></Image>
-          <Image
-            source={require("../../assets/im1.jpg")}
-            style={{
-              width: "35%",
-              height: 180,
-              resizeMode: "contain",
-            }}
-          ></Image>
-        </View>
+        <SwiperFlatList
+          autoplay
+          autoplayDelay={1}
+          autoplayLoop
+          index={0}
+          style={{ marginTop: 10 }}
+          showPagination
+        >
+          {homeSlider.map((item) => (
+            <View key={item.id} style={styles.service}>
+              <Image
+                source={item.image}
+                style={{
+                  width: "100%",
+                  height: 190,
+                  resizeMode: "contain",
+                  borderTopRightRadius: 10,
+                  borderTopLeftRadius: 10,
+                }}
+              />
+            </View>
+          ))}
+        </SwiperFlatList>
         <Text
           style={{
             fontSize: 18,
@@ -563,24 +571,14 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     padding: 15,
   },
-  util: {
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "row",
-    gap: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#EBEDED",
-    paddingTop: 15,
-    paddingBottom: 15,
-  },
 
   serviceContainer: {
     width: "100%",
     marginTop: 15,
   },
   service: {
-    width: 300,
+    height: 200,
+    width: 130,
     borderRadius: 10,
     marginRight: 15,
     backgroundColor: "#fff",

@@ -9,8 +9,8 @@ import {
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import OcticonsIcon from "react-native-vector-icons/Octicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import searchTrends from "../datas/searchTrends";
-import preferredService from "../datas/preferredService";
+import searchTrends from "../../datas/searchTrends";
+import preferredService from "../../datas/preferredService";
 import { TextInput } from "react-native-gesture-handler";
 export default function Telecom({ route }) {
   // const { sdt } = route.params;
@@ -113,7 +113,7 @@ export default function Telecom({ route }) {
         ))}
       </View>
       <Image
-        source={require("../../assets/uudai.png")}
+        source={require("../../../assets/uudai.png")}
         style={{
           width: "100%",
           height: 170,
@@ -145,7 +145,7 @@ export default function Telecom({ route }) {
         }}
       >
         <Image
-          source={require("../../assets/bulb.png")}
+          source={require("../../../assets/bulb.png")}
           style={{
             width: 70,
             height: 70,
@@ -177,7 +177,7 @@ export default function Telecom({ route }) {
         <Text style={{ fontSize: 12, color: "#347DF2" }}>Xem tất cả</Text>
       </View>
       <Image
-        source={require("../../assets/location-img.png")}
+        source={require("../../../assets/location-img.png")}
         style={{
           width: 120,
           height: 120,

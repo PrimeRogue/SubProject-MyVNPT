@@ -12,11 +12,13 @@ import {
   TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import sliderData from "../components/sliderData";
+import logInSlider from "../../datas/logInSlider";
 import { CheckBox } from "react-native-elements";
 import axios from "axios";
-// import dangNhapData from "../datas/dangNhapData";
 import { useNavigation } from "@react-navigation/native";
+import SwiperFlatList from "react-native-swiper-flatlist";
+import homeSlider from "../../datas/homeSlider";
+
 export default function LogIn({ route }) {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
@@ -53,7 +55,7 @@ export default function LogIn({ route }) {
   return (
     <View style={styles.container}>
       <Image
-        source={require("../../assets/toa-nha-vnpt.jpg")}
+        source={require("../../../assets/toa-nha-vnpt.jpg")}
         style={{ width: "110%", height: 500, position: "fixed", opacity: 0.8 }}
       ></Image>
 
@@ -410,7 +412,7 @@ export default function LogIn({ route }) {
           </Text>
           <View style={styles.util}>
             <Image
-              source={require("../../assets/note-add.png")}
+              source={require("../../../assets/note-add.png")}
               style={{
                 width: 25,
                 height: 25,
@@ -426,7 +428,7 @@ export default function LogIn({ route }) {
           </View>
           <View style={styles.util}>
             <Image
-              source={require("../../assets/invoice.png")}
+              source={require("../../../assets/invoice.png")}
               style={{
                 width: 25,
                 height: 25,
@@ -442,7 +444,7 @@ export default function LogIn({ route }) {
           </View>
           <View style={styles.util}>
             <Image
-              source={require("../../assets/location.png")}
+              source={require("../../../assets/location.png")}
               style={{
                 width: 25,
                 height: 25,
@@ -458,11 +460,16 @@ export default function LogIn({ route }) {
           </View>
         </View>
 
-        <FlatList
-          data={sliderData}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View style={styles.service}>
+        <SwiperFlatList
+          autoplay
+          autoplayDelay={2}
+          autoplayLoop
+          index={0}
+          style={{ marginTop: 10 }}
+          showPagination
+        >
+          {logInSlider.map((item) => (
+            <View key={item.id} style={styles.service}>
               <Image
                 source={item.image}
                 style={{
@@ -471,7 +478,7 @@ export default function LogIn({ route }) {
                   borderTopRightRadius: 10,
                   borderTopLeftRadius: 10,
                 }}
-              ></Image>
+              />
               <Text style={{ margin: 10, fontSize: 15, fontWeight: "bold" }}>
                 {item.title}
               </Text>
@@ -486,6 +493,7 @@ export default function LogIn({ route }) {
                   alignSelf: "flex-end",
                   marginRight: 10,
                 }}
+                onPress={() => setModalVisible(true)}
               >
                 <Text style={{ fontSize: 14, fontWeight: 400, color: "#fff" }}>
                   Chi tiết
@@ -493,15 +501,12 @@ export default function LogIn({ route }) {
               </TouchableOpacity>
               <Text style={{ margin: 10, fontSize: 15 }}>{item.desc}</Text>
             </View>
-          )}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={styles.serviceContainer}
-        />
+          ))}
+        </SwiperFlatList>
 
         <View style={styles.utilContainer}>
           <Image
-            source={require("../../assets/logo.png")}
+            source={require("../../../assets/logo.png")}
             style={{
               width: 30,
               height: 30,
@@ -520,7 +525,7 @@ export default function LogIn({ route }) {
           </Text>
           <View style={styles.util}>
             <Image
-              source={require("../../assets/message-search.png")}
+              source={require("../../../assets/message-search.png")}
               style={{
                 width: 25,
                 height: 25,
@@ -534,7 +539,7 @@ export default function LogIn({ route }) {
           </View>
           <View style={styles.util}>
             <Image
-              source={require("../../assets/phone.png")}
+              source={require("../../../assets/phone.png")}
               style={{
                 width: 25,
                 height: 25,
@@ -548,7 +553,7 @@ export default function LogIn({ route }) {
           </View>
           <View style={styles.util}>
             <Image
-              source={require("../../assets/wifi.png")}
+              source={require("../../../assets/wifi.png")}
               style={{
                 width: 25,
                 height: 25,
@@ -573,7 +578,7 @@ export default function LogIn({ route }) {
           }}
         >
           <Image
-            source={require("../../assets/logo2.png")}
+            source={require("../../../assets/logo2.png")}
             style={{
               width: 40,
               height: 40,

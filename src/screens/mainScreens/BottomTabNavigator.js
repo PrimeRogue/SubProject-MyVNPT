@@ -3,7 +3,6 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/Ionicons";
 
-import Screen02 from "../components/Screen02";
 import Home from "./Home";
 import Telecome from "./Telecome";
 import PackOfData from "./PackOfData";

@@ -1,19 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import BottomTabNavigator from "./src/screens/BottomTabNavigator";
-import LogIn from "./src/screens/LogIn";
-import Home from "./src/screens/Home";
-import Telecom from "./src/screens/Telecome";
-import PackOfData from "./src/screens/PackOfData";
+import LogIn from "./src/screens/mainScreens/LogIn";
 import Notification from "./src/screens/Notification";
+import BottomTabNavigator from "./src/screens/mainScreens/BottomTabNavigator";
 import BuyPhoneSim from "./src/screens/BuyPhoneSim";
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Screen01">
+      <Stack.Navigator initialRouteName="LogIn">
         <Stack.Screen
           name="LogIn"
           component={LogIn}
@@ -36,10 +33,10 @@ export default function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-    // // <BuyPhoneSim></BuyPhoneSim>
+    // <BuyPhoneSim></BuyPhoneSim>
     // <Home></Home>
     // <BottomTabNavigator></BottomTabNavigator>
-    // <Notification></Notification>
+    // <Personal></Personal>
   );
 }
 

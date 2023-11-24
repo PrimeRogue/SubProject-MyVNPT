@@ -67,7 +67,7 @@ export default function PackOfData() {
           }}
         >
           <Image
-            source={require("../../assets/uudai.png")}
+            source={require("../../../assets/uudai.png")}
             style={{
               width: 30,
               height: 30,
@@ -75,7 +75,7 @@ export default function PackOfData() {
             }}
           ></Image>
           <Image
-            source={require("../../assets/uudai.png")}
+            source={require("../../../assets/uudai.png")}
             style={{
               width: 30,
               height: 30,
@@ -89,7 +89,7 @@ export default function PackOfData() {
           </Text>
         </View>
         <Image
-          source={require("../../assets/uudai.png")}
+          source={require("../../../assets/uudai.png")}
           style={{
             width: "100%",
             height: 170,
@@ -110,7 +110,7 @@ export default function PackOfData() {
           }}
         >
           <Image
-            source={require("../../assets/explo1.png")}
+            source={require("../../../assets/explo1.png")}
             style={{
               width: "50%",
               height: 120,
@@ -119,7 +119,7 @@ export default function PackOfData() {
             }}
           ></Image>
           <Image
-            source={require("../../assets/explo2.png")}
+            source={require("../../../assets/explo2.png")}
             style={{
               width: "50%",
               height: 120,
@@ -130,7 +130,7 @@ export default function PackOfData() {
         </View>
         <View style={{ flexDirection: "row", gap: 15 }}>
           <Image
-            source={require("../../assets/explo3.png")}
+            source={require("../../../assets/explo3.png")}
             style={{
               width: "50%",
               height: 120,
@@ -139,7 +139,7 @@ export default function PackOfData() {
             }}
           ></Image>
           <Image
-            source={require("../../assets/explo4.png")}
+            source={require("../../../assets/explo4.png")}
             style={{
               width: "50%",
               height: 120,
