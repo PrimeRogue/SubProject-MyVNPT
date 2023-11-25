@@ -17,19 +17,25 @@ import { CheckBox } from "react-native-elements";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import SwiperFlatList from "react-native-swiper-flatlist";
-import homeSlider from "../../datas/homeSlider";
-
 export default function LogIn({ route }) {
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isModalVisible2, setModalVisible2] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isContinueClicked, setIsContinueClicked] = useState(false);
   const [activeLanguage, setActiveLanguage] = useState("vn");
   const [sdt, setSdt] = useState("");
+  const [otp1, setOtp1] = useState("");
+  const [otp2, setOtp2] = useState("");
+  const [otp3, setOtp3] = useState("");
+  const [otp4, setOtp4] = useState("");
   const navigation = useNavigation();
-  let otp = "";
+  let otpFromInput = "";
   let dangNhapData = [];
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
+  };
+  const toggleModal2 = () => {
+    setModalVisible2(!isModalVisible2);
   };
 
   const fetchPurchasedPhoneNumber = async () => {
@@ -44,13 +50,22 @@ export default function LogIn({ route }) {
     }
   };
   fetchPurchasedPhoneNumber();
-  const handleLogIn = (otp) => {
-    const foundItem = dangNhapData.find((item) => item.OTP === otp);
-    const sdt = foundItem.sdt;
+  const handleLogIn = () => {
+    otpFromInput = otp1 + otp2 + otp3 + otp4;
+    const foundItem = dangNhapData.find((item) => item.OTP === otpFromInput);
     if (foundItem) {
       navigation.navigate("BottomTabNavigator", { sdt });
-      setModalVisible(false);
+      toggleModal();
     }
+  };
+  const handleAutoFill = () => {
+    const foundItem = dangNhapData.find((item) => item.sdt === sdt);
+    const otp = foundItem.OTP;
+    setOtp1(otp[0]);
+    setOtp2(otp[1]);
+    setOtp3(otp[2]);
+    setOtp4(otp[3]);
+    toggleModal2();
   };
   return (
     <View style={styles.container}>
@@ -161,7 +176,12 @@ export default function LogIn({ route }) {
               ) : null}
               {!isContinueClicked ? (
                 <TouchableOpacity
-                  onPress={() => setIsContinueClicked(!isContinueClicked)}
+                  onPress={() => {
+                    if (sdt.trim() !== "") {
+                      toggleModal2();
+                      setIsContinueClicked(!isContinueClicked);
+                    }
+                  }}
                   style={
                     !isChecked
                       ? {
@@ -192,7 +212,7 @@ export default function LogIn({ route }) {
               {isContinueClicked ? (
                 <TouchableOpacity
                   onPress={() => {
-                    handleLogIn(otp);
+                    handleLogIn(otpFromInput);
                   }}
                   style={{
                     padding: 10,
@@ -238,7 +258,8 @@ export default function LogIn({ route }) {
                     }}
                   >
                     <TextInput
-                      onChangeText={(text) => (otp += text)}
+                      value={otp1}
+                      onChangeText={(text) => setOtp1(text)}
                       style={{
                         width: 40,
                         height: 40,
@@ -254,7 +275,8 @@ export default function LogIn({ route }) {
                       }}
                     ></TextInput>
                     <TextInput
-                      onChangeText={(text) => (otp += text)}
+                      value={otp2}
+                      onChangeText={(text) => setOtp2(text)}
                       style={{
                         width: 40,
                         height: 40,
@@ -270,7 +292,8 @@ export default function LogIn({ route }) {
                       }}
                     ></TextInput>
                     <TextInput
-                      onChangeText={(text) => (otp += text)}
+                      value={otp3}
+                      onChangeText={(text) => setOtp3(text)}
                       style={{
                         width: 40,
                         height: 40,
@@ -286,7 +309,8 @@ export default function LogIn({ route }) {
                       }}
                     ></TextInput>
                     <TextInput
-                      onChangeText={(text) => (otp += text)}
+                      value={otp4}
+                      onChangeText={(text) => setOtp4(text)}
                       style={{
                         width: 40,
                         height: 40,
@@ -305,6 +329,58 @@ export default function LogIn({ route }) {
                 </View>
               ) : null}
             </View>
+          </View>
+        </View>
+      </Modal>
+      <Modal animationType="slide" transparent={true} visible={isModalVisible2}>
+        <View
+          style={{
+            position: "absolute",
+            bottom: 70,
+            width: "100%",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 15,
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
+              padding: 15,
+              borderRadius: 10,
+              width: "100%",
+              shadowColor: "#000",
+              shadowOffset: { width: 0, height: 1 },
+              shadowOpacity: 0.6,
+              shadowRadius: 3,
+              elevation: 5,
+            }}
+          >
+            <TouchableOpacity onPress={toggleModal2}>
+              <Icon name="close" size={25} color="black" />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{
+                borderRadius: 10,
+                padding: 10,
+                backgroundColor: "#3177FD",
+                justifyContent: "center",
+                alignItems: "center",
+                alignSelf: "flex-end",
+                paddingRight: 15,
+                paddingLeft: 15,
+              }}
+              onPress={() => handleAutoFill()}
+            >
+              <Text style={{ fontSize: 15, fontWeight: 400, color: "#fff" }}>
+                Tự động điền mã OTP
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>

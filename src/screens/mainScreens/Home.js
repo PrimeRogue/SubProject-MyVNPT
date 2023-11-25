@@ -7,7 +7,6 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useReducer, useState } from "react";
-import axios from "axios";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import OcticonsIcon from "react-native-vector-icons/Octicons";
 import Feather from "react-native-vector-icons/Feather";
@@ -16,22 +15,8 @@ import searchTrends from "../../datas/searchTrends";
 import preferredService from "../../datas/preferredService";
 import SwiperFlatList from "react-native-swiper-flatlist";
 import homeSlider from "../../datas/homeSlider";
-import logInSlider from "../../datas/logInSlider";
 export default function Home({ navigation, route }) {
-  const [sdt, setSdt] = useState("");
-
-  const fetchPurchasedPhoneNumber = async () => {
-    try {
-      const apiUrl =
-        "https://62c1218ceff7f7856f0990a7.mockapi.io/shopeelink/purchasedPhoneNumber";
-      const response = await axios.get(apiUrl);
-      setSdt(response.data.pop().sdt);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      throw error;
-    }
-  };
-  fetchPurchasedPhoneNumber();
+  const { sdt } = route.params;
   return (
     <ScrollView style={styles.container}>
       <View style={{ padding: 15 }}>
