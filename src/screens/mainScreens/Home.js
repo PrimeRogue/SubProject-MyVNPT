@@ -209,7 +209,10 @@ export default function Home({ navigation, route }) {
             ></Image>
           </View>
           <View style={{ width: "100%", gap: 5, flexDirection: "row" }}>
-            <View
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("ChangePhoneNumber", { navigation });
+              }}
               style={{
                 flex: 4,
                 borderRadius: 10,
@@ -232,7 +235,7 @@ export default function Home({ navigation, route }) {
                   bottom: -55,
                 }}
               ></Image>
-            </View>
+            </TouchableOpacity>
             <View style={{ gap: 10, flexDirection: "column", flex: 6 }}>
               <View
                 style={{

@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import LogIn from "./src/screens/mainScreens/LogIn";
-import Notification from "./src/screens/Notification";
 import BottomTabNavigator from "./src/screens/mainScreens/BottomTabNavigator";
-import BuyPhoneSim from "./src/screens/BuyPhoneSim";
+import BuyPhoneSim from "./src/screens/subScreens/BuyPhoneSim";
+import ChangePhoneNumber from "./src/screens/subScreens/ChangePhoneNumber";
+import Notification from "./src/screens/subScreens/Notification";
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -31,12 +32,17 @@ export default function App() {
           component={BuyPhoneSim}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="ChangePhoneNumber"
+          component={ChangePhoneNumber}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
     // <BuyPhoneSim></BuyPhoneSim>
     // <Home></Home>
     // <BottomTabNavigator></BottomTabNavigator>
-    // <Personal></Personal>
+    // <ChangePhoneNumber></ChangePhoneNumber>
   );
 }
 

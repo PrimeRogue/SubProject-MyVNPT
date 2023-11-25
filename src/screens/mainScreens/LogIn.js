@@ -557,6 +557,7 @@ export default function LogIn({ route }) {
               style={{
                 width: 25,
                 height: 25,
+                resizeMode: "contain",
               }}
             ></Image>
             <Text style={{ fontSize: 15, position: "absolute", left: 35 }}>

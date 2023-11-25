@@ -12,7 +12,7 @@ import Octicons from "react-native-vector-icons/Octicons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { RadioButton } from "react-native-paper";
 import DropDownPicker from "react-native-dropdown-picker";
-import vinaphoneNumber from "../datas/vinaphoneNumber";
+import vinaphoneNumber from "../../datas/vinaphoneNumber";
 import axios from "axios";
 
 import { useState } from "react";
@@ -107,7 +107,7 @@ export default function BuyPhoneSim({ navigation, route }) {
                 Số điện thoại của bạn là: {purchasedPhoneNumber}
               </Text>
               <Image
-                source={require("../../assets/thanhcongicon.png")}
+                source={require("../../../assets/thanhcongicon.png")}
                 style={{
                   width: "60%",
                   height: 50,
@@ -189,7 +189,7 @@ export default function BuyPhoneSim({ navigation, route }) {
       >
         <Octicons name="three-bars" size={25} color="#fff" />
         <Image
-          source={require("../../assets/vnptlogo.png")}
+          source={require("../../../assets/vnptlogo.png")}
           style={{
             width: 200,
             height: 50,
