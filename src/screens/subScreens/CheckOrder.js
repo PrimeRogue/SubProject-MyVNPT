@@ -205,7 +205,37 @@ export default function CheckOrder({ navigation }) {
               alignSelf: "center",
             }}
           ></Image>
-          
+          <Text
+            style={{
+              textAlign: "center",
+              fontSize: 12,
+              color: "#616469",
+              margin: 15,
+            }}
+          >
+            Bạn cần đăng nhập ví để kiểm tra lịch sử tra cứu
+          </Text>
+          <TouchableOpacity
+            style={{
+              width: "90%",
+              borderRadius: 30,
+              padding: 15,
+              justifyContent: "center",
+              alignItems: "center",
+              margin: 15,
+              alignSelf: "center",
+              borderWidth: 2,
+              borderColor: "#377BF6",
+              borderStyle: "dotted",
+            }}
+          >
+            <Text
+              style={{ fontSize: 15, fontWeight: "bold", color: "#377BF6" }}
+            >
+              Đăng nhập ngay
+            </Text>
+          </TouchableOpacity>
+
 
 
 
