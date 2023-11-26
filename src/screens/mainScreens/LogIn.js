@@ -54,7 +54,15 @@ export default function LogIn({ route }) {
     otpFromInput = otp1 + otp2 + otp3 + otp4;
     const foundItem = dangNhapData.find((item) => item.OTP === otpFromInput);
     if (foundItem) {
-      navigation.navigate("BottomTabNavigator", { sdt });
+      const taikhoanchinh = foundItem.taikhoanchinh;
+      const taikhoankm = foundItem.taikhoankm;
+      console.log(sdt + taikhoanchinh + taikhoankm);
+      console.log(foundItem);
+      navigation.navigate("BottomTabNavigator", {
+        sdt,
+        taikhoanchinh,
+        taikhoankm,
+      });
       toggleModal();
     }
   };
@@ -542,7 +550,6 @@ export default function LogIn({ route }) {
           autoplayLoop
           index={0}
           style={{ marginTop: 10 }}
-          showPagination
         >
           {logInSlider.map((item) => (
             <View key={item.id} style={styles.service}>

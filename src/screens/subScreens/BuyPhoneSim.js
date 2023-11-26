@@ -51,12 +51,15 @@ export default function BuyPhoneSim({ navigation, route }) {
 
   const postPurchasedPhoneNumber = async (item) => {
     try {
+      setPurchasedPhoneNumber(item);
       const apiUrl =
         "https://62c1218ceff7f7856f0990a7.mockapi.io/shopeelink/purchasedPhoneNumber"; // Thay thế bằng URL của MockAPI của bạn
 
       const postData = {
         sdt: item,
         OTP: item.slice(-4),
+        taikhoanchinh: 0,
+        taikhoankm: 0,
       };
 
       const response = await axios.post(apiUrl, postData);
@@ -69,7 +72,6 @@ export default function BuyPhoneSim({ navigation, route }) {
     }
   };
 
-  console.log(route.params);
   return (
     <ScrollView style={styles.container}>
       <Modal
@@ -104,7 +106,7 @@ export default function BuyPhoneSim({ navigation, route }) {
               <Text
                 style={{ fontSize: 15, marginTop: 10, textAlign: "center" }}
               >
-                Số điện thoại của bạn là: {purchasedPhoneNumber}
+                Bạn đã mua Số điện thoại: {purchasedPhoneNumber}
               </Text>
               <Image
                 source={require("../../../assets/thanhcongicon.png")}
@@ -263,6 +265,7 @@ export default function BuyPhoneSim({ navigation, route }) {
             setOpen={setOpen}
             setValue={setValue}
             setItems={setItems}
+            placeholder="Chọn đầu số"
             onOpen={() => setMarginBottomDropdown(200)}
             onClose={() => setMarginBottomDropdown(0)}
             style={{

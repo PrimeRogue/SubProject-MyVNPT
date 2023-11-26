@@ -15,8 +15,12 @@ import searchTrends from "../../datas/searchTrends";
 import preferredService from "../../datas/preferredService";
 import SwiperFlatList from "react-native-swiper-flatlist";
 import homeSlider from "../../datas/homeSlider";
+import axios from "axios";
+
 export default function Home({ navigation, route }) {
-  const { sdt } = route.params;
+  let { sdt } = route.params;
+  let [taikhoanchinh, setTaiKhoanChinh] = useState(route.params.taikhoanchinh);
+  let [taikhoankm, setTaiKhoanKM] = useState(route.params.taikhoankm);
   return (
     <ScrollView style={styles.container}>
       <View style={{ padding: 15 }}>
@@ -72,11 +76,15 @@ export default function Home({ navigation, route }) {
           >
             <View style={{ width: "50%", gap: 5 }}>
               <Text style={{ fontSize: 15 }}>Tài khoản chính</Text>
-              <Text style={{ fontSize: 25, fontWeight: "bold" }}>0đ</Text>
+              <Text style={{ fontSize: 25, fontWeight: "bold" }}>
+                {taikhoanchinh}đ
+              </Text>
             </View>
             <View style={{ width: "50%", gap: 5 }}>
               <Text style={{ fontSize: 15 }}>Tài khoản khuyến mãi</Text>
-              <Text style={{ fontSize: 25, fontWeight: "bold" }}>0đ</Text>
+              <Text style={{ fontSize: 25, fontWeight: "bold" }}>
+                {taikhoankm}đ
+              </Text>
             </View>
           </View>
 
@@ -88,6 +96,14 @@ export default function Home({ navigation, route }) {
             }}
           >
             <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("Recharge", {
+                  navigation,
+                  sdt,
+                  setTaiKhoanChinh,
+                  setTaiKhoanKM,
+                })
+              }
               style={{
                 padding: 5,
                 paddingLeft: 10,
@@ -353,7 +369,6 @@ export default function Home({ navigation, route }) {
           autoplayLoop
           index={0}
           style={{ marginTop: 10 }}
-          showPagination
         >
           {homeSlider.map((item) => (
             <View key={item.id} style={styles.service}>

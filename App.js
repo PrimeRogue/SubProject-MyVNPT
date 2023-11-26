@@ -11,6 +11,7 @@ import SubscribeTVInternet from "./src/screens/subScreens/SubscribeTVInternet";
 import Support from "./src/screens/subScreens/Support";
 import Setting from "./src/screens/subScreens/Setting";
 import Personal from "./src/screens/mainScreens/Personal";
+import Recharge from "./src/screens/subScreens/Recharge";
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -57,12 +58,17 @@ export default function App() {
           component={Setting}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Recharge"
+          component={Recharge}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
     // <BuyPhoneSim></BuyPhoneSim>
     // <CheckOrder></CheckOrder>
     // <BottomTabNavigator></BottomTabNavigator>
-    // <Setting></Setting>
+    // <Recharge></Recharge>
   );
 }
 

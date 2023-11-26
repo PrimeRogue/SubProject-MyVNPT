@@ -11,7 +11,7 @@ import Personal from "./Personal";
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = ({ route }) => {
-  const { sdt } = route.params;
+  const { sdt, taikhoanchinh, taikhoankm } = route.params;
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -39,7 +39,11 @@ const BottomTabNavigator = ({ route }) => {
         name="Trang chủ"
         component={Home}
         options={{ headerShown: false }}
-        initialParams={{ sdt: sdt }}
+        initialParams={{
+          sdt: sdt,
+          taikhoanchinh: taikhoanchinh,
+          taikhoankm: taikhoankm,
+        }}
       />
       <Tab.Screen
         name="Viễn thông"
