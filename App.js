@@ -12,63 +12,34 @@ import Support from "./src/screens/subScreens/Support";
 import Setting from "./src/screens/subScreens/Setting";
 import Personal from "./src/screens/mainScreens/Personal";
 import Recharge from "./src/screens/subScreens/Recharge";
+import Package from "./src/screens/subScreens/Package";
 const Stack = createStackNavigator();
-
+const screenComponents = {
+  LogIn,
+  Notification,
+  BottomTabNavigator,
+  BuyPhoneSim,
+  ChangePhoneNumber,
+  CheckOrder,
+  Support,
+  Setting,
+  Recharge,
+  Package,
+};
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="LogIn">
-        <Stack.Screen
-          name="LogIn"
-          component={LogIn}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Notification"
-          component={Notification}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="BottomTabNavigator"
-          component={BottomTabNavigator}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="BuyPhoneSim"
-          component={BuyPhoneSim}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ChangePhoneNumber"
-          component={ChangePhoneNumber}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="CheckOrder"
-          component={CheckOrder}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Support"
-          component={Support}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Setting"
-          component={Setting}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Recharge"
-          component={Recharge}
-          options={{ headerShown: false }}
-        />
+        {Object.keys(screenComponents).map((screenName) => (
+          <Stack.Screen
+            key={screenName}
+            name={screenName}
+            component={screenComponents[screenName]}
+            options={{ headerShown: false }}
+          />
+        ))}
       </Stack.Navigator>
     </NavigationContainer>
-    // <BuyPhoneSim></BuyPhoneSim>
-    // <CheckOrder></CheckOrder>
-    // <BottomTabNavigator></BottomTabNavigator>
-    // <Recharge></Recharge>
   );
 }
 

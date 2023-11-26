@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useRef } from "react";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import OcticonsIcon from "react-native-vector-icons/Octicons";
 import Feather from "react-native-vector-icons/Feather";
@@ -21,8 +21,9 @@ export default function Home({ navigation, route }) {
   let { sdt } = route.params;
   let [taikhoanchinh, setTaiKhoanChinh] = useState(route.params.taikhoanchinh);
   let [taikhoankm, setTaiKhoanKM] = useState(route.params.taikhoankm);
+  const scrollViewRef = useRef(null);
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} ref={scrollViewRef}>
       <View style={{ padding: 15 }}>
         <View style={styles.header}>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
@@ -44,12 +45,24 @@ export default function Home({ navigation, route }) {
             </View>
           </View>
           <View style={{ flexDirection: "row", gap: 20 }}>
-            <View style={styles.noficationButton}>
+            <TouchableOpacity
+              style={styles.noficationButton}
+              onPress={() => {
+                navigation.navigate("Notification", { navigation });
+              }}
+            >
               <MaterialIcon name="notifications" size={25} color="#fff" />
-            </View>
-            <View style={styles.noficationButton}>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.noficationButton}
+              onPress={() => {
+                scrollViewRef.current.scrollToEnd({
+                  animated: true,
+                });
+              }}
+            >
               <MaterialIcon name="search" size={25} color="#fff" />
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
         <View style={styles.glass}>
@@ -478,6 +491,13 @@ export default function Home({ navigation, route }) {
         <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
           {searchTrends.map((item, index) => (
             <TouchableOpacity
+              onPress={() => {
+                let name = item.name;
+                let data = item.data;
+                let chuKy = item.chuKy;
+                let thongTin = item.thongTin;
+                navigation.navigate("Package", { name, data, chuKy, thongTin });
+              }}
               key={index}
               style={{
                 borderRadius: 30,

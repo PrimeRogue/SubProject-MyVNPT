@@ -95,7 +95,7 @@ export default function Telecom({ route }) {
         }}
       >
         {preferredService.slice(-4).map((item, index) => (
-          <View style={{ alignItems: "center", gap: 5 }}>
+          <View style={{ alignItems: "center", gap: 5 }} key={index}>
             <Image
               source={item.image}
               style={{
