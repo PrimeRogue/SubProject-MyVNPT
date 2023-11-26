@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  Linking,
 } from "react-native";
 import React, { useReducer, useState, useRef } from "react";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
@@ -153,6 +154,13 @@ export default function Home({ navigation, route }) {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => {
+                const url = "https://vnpt.com.vn/ho-tro";
+
+                Linking.openURL(url).catch((err) =>
+                  console.error("An error occurred", err)
+                );
+              }}
               style={{
                 padding: 5,
                 paddingLeft: 10,
