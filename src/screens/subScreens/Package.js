@@ -241,7 +241,26 @@ export default function Package({ navigation, route }) {
       </View>
       
 
-
+      <ScrollView>
+        <Text style={{ fontSize: 15 }}>
+          1. Ưu đãi gói cước - 1 GB data/ngày (hết dung lượng dừng truy cập).
+          - Miễn phí data truy cập các ứng dụng Youtube, Facebook và Tiktok
+          - Truyền hình MyTV: hơn 140 kênh bao gồm chùm kênh VTVCab 2. Điều kiện
+          đăng ký gói cước - Thuê bao Vinaphone kích hoạt mới trong vòng 30 ngày
+          kể từ ngày kích hoạt thành công, chưa có các gói COMBO/DATA chu kỳ từ
+          1 tháng trở lên. - Áp dụng cho thuê bao Vinaphone theo danh sách 3.
+          Gia hạn gói cước - Gói cước tự động gia hạn.  4. Cách kiểm tra các ưu
+          đãi còn lại của gói cước - Cú pháp tra cứu: DATA gửi 888 5. Quy định
+          sử dụng gói cước - Trên thực tế trong quá trình sử dụng ứng dụng nêu
+          trên, người dùng có khả năng phát sinh lưu lượng Data của một số bên
+          thứ ba như Apple, Facebook, Google,… trong các thao tác đăng nhập,
+          chọn nhạc,… Do đó, thuê bao vẫn có khả năng phát sinh cước data cho
+          các lưu lượng truy cập này. - Thời gian cam kết không chuyển mạng giữ
+          số: 18 tháng (540 ngày) tính từ ngày đăng ký gói thành công. 6. Tổng
+          đài hỗ trợ về dịch vụ di động - Để được hỗ trợ về dịch vụ di động, Quý
+          khách vui lòng liên hệ 1800 1091 (miễn phí)
+        </Text>
+      </ScrollView>
 
 
     </View>
