@@ -24,9 +24,8 @@ const BottomTabNavigator = ({ route }) => {
           } else if (route.name === "Gói cước") {
             iconName = "ios-analytics";
           } else if (route.name === "Cá nhân") {
-            
+            iconName = "ios-person";
           }
-          
 
           return <Icon name={iconName} size={size} color={color} />;
         },
@@ -52,7 +51,7 @@ const BottomTabNavigator = ({ route }) => {
         component={PackOfData}
         options={{ headerShown: false }}
       />
-       <Tab.Screen
+      <Tab.Screen
         name="Cá nhân"
         component={Personal}
         options={{ headerShown: false }}

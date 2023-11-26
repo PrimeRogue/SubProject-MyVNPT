@@ -13,7 +13,6 @@ import searchTrends from "../../datas/searchTrends";
 import preferredService from "../../datas/preferredService";
 import { TextInput } from "react-native-gesture-handler";
 export default function Telecom({ route }) {
-  // const { sdt } = route.params;
   const sdt = "";
   return (
     <ScrollView style={styles.container}>

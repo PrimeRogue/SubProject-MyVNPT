@@ -245,7 +245,10 @@ export default function Home({ navigation, route }) {
                   }}
                 ></Image>
               </View>
-              <View
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("CheckOrder", { navigation });
+                }}
                 style={{
                   borderRadius: 10,
                   backgroundColor: "#fff",
@@ -267,7 +270,7 @@ export default function Home({ navigation, route }) {
                     resizeMode: "contain",
                   }}
                 ></Image>
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
           <View
