@@ -264,7 +264,10 @@ export default function Personal({ navigation, route }) {
           marginBottom: 100,
         }}
       >
-        <View
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Setting");
+          }}
           style={{
             flexDirection: "row",
             gap: 5,
@@ -284,7 +287,7 @@ export default function Personal({ navigation, route }) {
             color="#787D82"
             style={{ position: "absolute", right: 0 }}
           />
-        </View>
+        </TouchableOpacity>
         <View
           style={{
             flexDirection: "row",

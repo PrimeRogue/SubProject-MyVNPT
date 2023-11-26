@@ -9,6 +9,7 @@ import Notification from "./src/screens/subScreens/Notification";
 import CheckOrder from "./src/screens/subScreens/CheckOrder";
 import SubscribeTVInternet from "./src/screens/subScreens/SubscribeTVInternet";
 import Support from "./src/screens/subScreens/Support";
+import Setting from "./src/screens/subScreens/Setting";
 import Personal from "./src/screens/mainScreens/Personal";
 const Stack = createStackNavigator();
 
@@ -51,12 +52,17 @@ export default function App() {
           component={Support}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Setting"
+          component={Setting}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
     // <BuyPhoneSim></BuyPhoneSim>
     // <CheckOrder></CheckOrder>
     // <BottomTabNavigator></BottomTabNavigator>
-    // <Personal></Personal>
+    // <Setting></Setting>
   );
 }
 
