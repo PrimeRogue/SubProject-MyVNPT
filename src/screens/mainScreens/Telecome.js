@@ -12,7 +12,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import searchTrends from "../../datas/searchTrends";
 import preferredService from "../../datas/preferredService";
 import { TextInput } from "react-native-gesture-handler";
-export default function Telecom({ route }) {
+export default function Telecom({ navigation, route }) {
   const sdt = "";
   return (
     <ScrollView style={styles.container}>
@@ -111,15 +111,34 @@ export default function Telecom({ route }) {
           </View>
         ))}
       </View>
-      <Image
-        source={require("../../../assets/uudai.png")}
-        style={{
-          width: "100%",
-          height: 170,
-          marginTop: 30,
-          marginBottom: 30,
+      <TouchableOpacity
+        onPress={() => {
+          let name = "VD90";
+          let data = "1GB/ngày";
+          let chuKy = "1 ngày";
+          let thongTin = `1. Ưu đãi gói cước
+          - 1 GB data/ngày (hết dung lượng dừng truy cập).
+          - Miễn phí data truy cập các ứng dụng Youtube, Facebook và Tiktok
+          - Truyền hình MyTV: hơn 140 kênh bao gồm chùm kênh VTVCab
+          2. Điều kiện đăng ký gói cước
+          - Thuê bao Vinaphone kích hoạt mới trong vòng 30 ngày kể từ ngày kích hoạt thành công, chưa có các gói COMBO/DATA chu kỳ từ 1 tháng trở lên.
+          - Áp dụng cho thuê bao Vinaphone theo danh sách
+          3. Gia hạn gói cước
+          - Gói cước tự động gia hạn. `;
+          navigation.navigate("Package", { name, data, chuKy, thongTin });
         }}
-      ></Image>
+      >
+        <Image
+          source={require("../../../assets/uudai.png")}
+          style={{
+            width: "100%",
+            height: 170,
+            marginTop: 30,
+            marginBottom: 30,
+          }}
+        ></Image>
+      </TouchableOpacity>
+
       <Text
         style={{
           fontSize: 18,

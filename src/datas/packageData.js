@@ -1,35 +1,89 @@
 export default [
-  {
-    tenGoi: "BIG90",
-    data: "1GB/ngày",
-    chuKy: "30 ngày",
-    thongTin: `- Cước thuê bao tháng 0 đồng.
-
-    - Thời gian cam kết 18, 24, 36 tháng. Trong thời gian cam kết không được hủy gói chuyển trả trước, MNP…Gói cước được gia hạn tự động khi hết chu kỳ cam kết.
-    
-    - Thuê bao có thể thực hiện nâng cấp gói cước qua SMS hoặc tại điểm giao dịch.
-    
-    - Ưu đãi thoại nội mạng VNP: chỉ bao gồm các cuộc gọi đến di động VinaPhone, không bao gồm hướng gọi cố định VNPT (cuộc gọi cố định VNPT áp dụng trừ cước theo hướng nội mạng như quy định hiện hành). Không giới hạn số phút trên cuộc gọi; tổng thời lượng thoại không vượt quá tổng ưu đãi của gói.
-    
-    - Data của từng gói cước theo quy định hiện hành.
-    
-    - Đăng ký trước ngày 16: thu 100% giá gói; từ ngày 16 thu 50% giá gói. Hủy gói cước thu 100% giá gói.
-    
-    - Hiệu lực sử dụng gói đến hết tháng dương lịch.
-    
-    - TB được phép nâng cấp gói cước từ giá thấp lên giá cao theo các văn bản hiện hành.`,
-  },
-  {
-    tenGoi: "VOCUC",
-    data: "5GB/ngày",
-    chuKy: "1 ngày",
-    thongTin: `- 5GB Data (hết dung lượng dừng truy cập)
-    Để nâng cao chất lượng trải nghiệm Internet, VinaPhone dừng chính sách cho phép truy cập Internet khi hết dung lượng Data tốc độ cao, áp dụng với các gói cước gia hạn sau 15/7/2023.
-    
-    - Miễn phí cước cuộc gọi di động nội mạng VinaPhone dưới 20 phút (tối đa1440 phút)
-    
-    - 5 phút gọi di động ngoại mạng
-    
-    - 1 tài khoản sử dụng các nội dung Premium trên ứng dụng ON Plus`,
-  },
+  { tenGoi: "VD100", giaTien: "100000", chuKy: "tháng" },
+  { tenGoi: "FT200", giaTien: "150000", chuKy: "tháng" },
+  { tenGoi: "MegaPlus", giaTien: "200000", chuKy: "tháng" },
+  { tenGoi: "SuperNet", giaTien: "50000", chuKy: "tháng" },
+  { tenGoi: "MaxSpeed", giaTien: "120000", chuKy: "tháng" },
+  { tenGoi: "FamilyNet", giaTien: "80000", chuKy: "tháng" },
+  { tenGoi: "SmartData", giaTien: "180000", chuKy: "tháng" },
+  { tenGoi: "BusinessConnect", giaTien: "250000", chuKy: "tháng" },
+  { tenGoi: "EduNet", giaTien: "300000", chuKy: "tháng" },
+  { tenGoi: "EconomyNet", giaTien: "70000", chuKy: "tháng" },
+  { tenGoi: "TimeNet", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "NightSurf", giaTien: "40000", chuKy: "tháng" },
+  { tenGoi: "SpeedyNet", giaTien: "90000", chuKy: "tháng" },
+  { tenGoi: "HomeConnect", giaTien: "130000", chuKy: "tháng" },
+  { tenGoi: "SuperSurf", giaTien: "60000", chuKy: "tháng" },
+  { tenGoi: "UnlimitedNet", giaTien: "160000", chuKy: "tháng" },
+  { tenGoi: "BusinessNet", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "PremiumSpeed", giaTien: "80000", chuKy: "tháng" },
+  { tenGoi: "ProNet", giaTien: "120000", chuKy: "tháng" },
+  { tenGoi: "UltraNet", giaTien: "250000", chuKy: "tháng" },
+  { tenGoi: "FamilyConnect", giaTien: "300000", chuKy: "tháng" },
+  { tenGoi: "SuperData", giaTien: "70000", chuKy: "tháng" },
+  { tenGoi: "PowerSurf", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "QuickNet", giaTien: "40000", chuKy: "tháng" },
+  { tenGoi: "CityNet", giaTien: "90000", chuKy: "tháng" },
+  { tenGoi: "ExpressConnect", giaTien: "130000", chuKy: "tháng" },
+  { tenGoi: "NetPro", giaTien: "60000", chuKy: "tháng" },
+  { tenGoi: "SpeedMax", giaTien: "160000", chuKy: "tháng" },
+  { tenGoi: "HomePro", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "PrimeNet", giaTien: "80000", chuKy: "tháng" },
+  { tenGoi: "SwiftNet", giaTien: "120000", chuKy: "tháng" },
+  { tenGoi: "UltimateSurf", giaTien: "250000", chuKy: "tháng" },
+  { tenGoi: "PremiumConnect", giaTien: "300000", chuKy: "tháng" },
+  { tenGoi: "MegaNet", giaTien: "70000", chuKy: "tháng" },
+  { tenGoi: "TurboSpeed", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "FastNet", giaTien: "40000", chuKy: "tháng" },
+  { tenGoi: "NetBlaze", giaTien: "90000", chuKy: "tháng" },
+  { tenGoi: "SuperConnect", giaTien: "130000", chuKy: "tháng" },
+  { tenGoi: "VivaNet", giaTien: "60000", chuKy: "tháng" },
+  { tenGoi: "CityConnect", giaTien: "160000", chuKy: "tháng" },
+  { tenGoi: "PowerPro", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "ProConnect", giaTien: "80000", chuKy: "tháng" },
+  { tenGoi: "SpeedPlus", giaTien: "120000", chuKy: "tháng" },
+  { tenGoi: "HomePlus", giaTien: "300000", chuKy: "tháng" },
+  { tenGoi: "FamilyPro", giaTien: "70000", chuKy: "tháng" },
+  { tenGoi: "TurboNet", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "BusinessPlus", giaTien: "40000", chuKy: "tháng" },
+  { tenGoi: "UltimateConnect", giaTien: "90000", chuKy: "tháng" },
+  { tenGoi: "PremiumPro", giaTien: "130000", chuKy: "tháng" },
+  { tenGoi: "SwiftConnect", giaTien: "60000", chuKy: "tháng" },
+  { tenGoi: "NetSpeed", giaTien: "160000", chuKy: "tháng" },
+  { tenGoi: "CityPro", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "PowerConnect", giaTien: "80000", chuKy: "tháng" },
+  { tenGoi: "ProPlus", giaTien: "120000", chuKy: "tháng" },
+  { tenGoi: "SuperSpeed", giaTien: "250000", chuKy: "tháng" },
+  { tenGoi: "FamilySpeed", giaTien: "300000", chuKy: "tháng" },
+  { tenGoi: "MegaConnect", giaTien: "70000", chuKy: "tháng" },
+  { tenGoi: "TurboPlus", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "FastConnect", giaTien: "40000", chuKy: "tháng" },
+  { tenGoi: "NetPower", giaTien: "90000", chuKy: "tháng" },
+  { tenGoi: "UltraSpeed", giaTien: "130000", chuKy: "tháng" },
+  { tenGoi: "PremiumSpeed", giaTien: "60000", chuKy: "tháng" },
+  { tenGoi: "ProSpeed", giaTien: "160000", chuKy: "tháng" },
+  { tenGoi: "CitySpeed", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "PowerSpeed", giaTien: "80000", chuKy: "tháng" },
+  { tenGoi: "SuperPro", giaTien: "120000", chuKy: "tháng" },
+  { tenGoi: "FamilyProPlus", giaTien: "250000", chuKy: "tháng" },
+  { tenGoi: "SwiftSpeed", giaTien: "300000", chuKy: "tháng" },
+  { tenGoi: "NetProPlus", giaTien: "70000", chuKy: "tháng" },
+  { tenGoi: "CityProPlus", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "PowerProPlus", giaTien: "40000", chuKy: "tháng" },
+  { tenGoi: "UltraPro", giaTien: "90000", chuKy: "tháng" },
+  { tenGoi: "PremiumProPlus", giaTien: "130000", chuKy: "tháng" },
+  { tenGoi: "MegaPro", giaTien: "60000", chuKy: "tháng" },
+  { tenGoi: "TurboPro", giaTien: "160000", chuKy: "tháng" },
+  { tenGoi: "FastPro", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "NetPlus", giaTien: "80000", chuKy: "tháng" },
+  { tenGoi: "UltraProPlus", giaTien: "120000", chuKy: "tháng" },
+  { tenGoi: "PremiumProSpeed", giaTien: "250000", chuKy: "tháng" },
+  { tenGoi: "MegaSpeed", giaTien: "300000", chuKy: "tháng" },
+  { tenGoi: "TurboSpeed", giaTien: "70000", chuKy: "tháng" },
+  { tenGoi: "FastSpeed", giaTien: "110000", chuKy: "tháng" },
+  { tenGoi: "UltraSpeed", giaTien: "40000", chuKy: "tháng" },
+  { tenGoi: "PremiumSpeed", giaTien: "90000", chuKy: "tháng" },
+  { tenGoi: "MegaSpeed", giaTien: "130000", chuKy: "tháng" },
+  { tenGoi: "TurboSpeed", giaTien: "60000", chuKy: "tháng" },
+  { tenGoi: "FastSpeed", giaTien: "160000", chuKy: "tháng" },
 ];

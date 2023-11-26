@@ -7,7 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import MaterialIcon from "react-native-vector-icons/MaterialIcons";
-export default function PackOfData() {
+export default function PackOfData({ navigation }) {
   return (
     <ScrollView style={styles.container}>
       <View
@@ -32,6 +32,9 @@ export default function PackOfData() {
           Gói cước
         </Text>
         <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("SearchPackage", { navigation });
+          }}
           style={{
             width: 35,
             height: 35,
@@ -67,7 +70,7 @@ export default function PackOfData() {
           }}
         >
           <Image
-            source={require("../../../assets/uudai.png")}
+            source={require("../../../assets/homeslide3.png")}
             style={{
               width: 30,
               height: 30,
@@ -75,7 +78,7 @@ export default function PackOfData() {
             }}
           ></Image>
           <Image
-            source={require("../../../assets/uudai.png")}
+            source={require("../../../assets/homeslide4.png")}
             style={{
               width: 30,
               height: 30,
@@ -88,14 +91,33 @@ export default function PackOfData() {
             + 2.400.000 người tin dùng
           </Text>
         </View>
-        <Image
-          source={require("../../../assets/uudai.png")}
-          style={{
-            width: "100%",
-            height: 170,
-            marginBottom: 30,
+        <TouchableOpacity
+          onPress={() => {
+            let name = "VD90";
+            let data = "1GB/ngày";
+            let chuKy = "1 ngày";
+            let thongTin = `1. Ưu đãi gói cước
+          - 1 GB data/ngày (hết dung lượng dừng truy cập).
+          - Miễn phí data truy cập các ứng dụng Youtube, Facebook và Tiktok
+          - Truyền hình MyTV: hơn 140 kênh bao gồm chùm kênh VTVCab
+          2. Điều kiện đăng ký gói cước
+          - Thuê bao Vinaphone kích hoạt mới trong vòng 30 ngày kể từ ngày kích hoạt thành công, chưa có các gói COMBO/DATA chu kỳ từ 1 tháng trở lên.
+          - Áp dụng cho thuê bao Vinaphone theo danh sách
+          3. Gia hạn gói cước
+          - Gói cước tự động gia hạn. `;
+            navigation.navigate("Package", { name, data, chuKy, thongTin });
           }}
-        ></Image>
+        >
+          <Image
+            source={require("../../../assets/uudai.png")}
+            style={{
+              width: "100%",
+              height: 170,
+              marginBottom: 30,
+            }}
+          ></Image>
+        </TouchableOpacity>
+
         <Text style={{ fontSize: 18, fontWeight: "bold", marginBottom: 10 }}>
           Tiếp tục khám phá
         </Text>

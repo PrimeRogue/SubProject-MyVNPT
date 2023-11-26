@@ -13,6 +13,7 @@ import Setting from "./src/screens/subScreens/Setting";
 import Personal from "./src/screens/mainScreens/Personal";
 import Recharge from "./src/screens/subScreens/Recharge";
 import Package from "./src/screens/subScreens/Package";
+import SearchPackage from "./src/screens/subScreens/SearchPackage";
 const Stack = createStackNavigator();
 const screenComponents = {
   LogIn,
@@ -25,6 +26,7 @@ const screenComponents = {
   Setting,
   Recharge,
   Package,
+  SearchPackage,
 };
 export default function App() {
   return (
